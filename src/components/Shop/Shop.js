@@ -7,11 +7,15 @@ import "./Shop.css";
 const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [displayProducts, setdisplayProducts] = useState([]);
 
 	useEffect(() => {
 		fetch("https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json")
 			.then((res) => res.json())
-			.then((data) => setProducts(data));
+			.then((data) => {
+				setProducts(data);
+				setdisplayProducts(data);
+			});
 	}, []);
 	useEffect(() => {
 		if (products.length) {
@@ -37,15 +41,20 @@ const Shop = () => {
 
 		addToDb(product.key);
 	};
+	const handelSearch = (event) => {
+		const searchText = event.target.value;
+		const matchProducts = products.filter((product) => product.name.toLowerCase().includes(searchText.toLowerCase()));
+		setdisplayProducts(matchProducts);
+	};
 	return (
 		<>
-			<div className="search-bar">
-				<input className="input-fild" type="text" placeholder="Type here..." />
+			<div className="search-container">
+				<input className="input-fild" onChange={handelSearch} type="text" placeholder="Type here..." />
 				<button className="search-btn">Search</button>
 			</div>
 			<div className="shop-container">
 				<div className="product-container">
-					{products.map((product) => (
+					{displayProducts.map((product) => (
 						<Product key={product.key} product={product} handeleAddToCart={handeleAddToCart}></Product>
 					))}
 				</div>

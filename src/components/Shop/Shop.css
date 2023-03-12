@@ -1,4 +1,4 @@
-.search-bar {
+.search-container {
 	background-color: black;
 	align-items: center;
 	text-align: center;
@@ -7,22 +7,19 @@
 	background: black;
 	padding: 20px;
 }
-.search-bar .input-fild {
+.search-container .input-fild {
 	padding: 7px;
 	border-radius: 10px 0px 0px 10px;
 }
-.search-bar .search-btn {
+.search-container .search-btn {
 	background-color: aquamarine;
 	padding: 7px;
 	border-radius: 0px 10px 10px 0px;
 	cursor: pointer;
 }
-.search-bar .search-btn:hover {
+.search-container .search-btn:hover {
 	background-color: rgb(145, 44, 228);
 }
-
-
-
 
 .shop-container {
 	display: grid;
@@ -33,6 +30,3 @@
 	margin-right: 10px;
 	margin-left: 50px;
 }
-
-
-
