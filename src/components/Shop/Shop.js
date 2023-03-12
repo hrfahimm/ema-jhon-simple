@@ -21,7 +21,11 @@ const Shop = () => {
 				console.log(key);
 				const addedproduct = products.find((product) => product.key === key);
 				//console.log(key, addedproduct);
-				storedCart.push(addedproduct);
+				if (addedproduct) {
+					const quantity = savedCart[key];
+					addedproduct.quantity = quantity;
+					storedCart.push(addedproduct);
+				}
 			}
 			setCart(storedCart);
 		}
@@ -34,17 +38,23 @@ const Shop = () => {
 		addToDb(product.key);
 	};
 	return (
-		<div className="shop-container">
-			<div className="product-container">
-				{products.map((product) => (
-					<Product key={product.key} product={product} handeleAddToCart={handeleAddToCart}></Product>
-				))}
+		<>
+			<div className="search-bar">
+				<input className="input-fild" type="text" placeholder="Type here..." />
+				<button className="search-btn">Search</button>
 			</div>
+			<div className="shop-container">
+				<div className="product-container">
+					{products.map((product) => (
+						<Product key={product.key} product={product} handeleAddToCart={handeleAddToCart}></Product>
+					))}
+				</div>
 
-			<div className="cart-container">
-				<Cart cart={cart}></Cart>
+				<div className="cart-container">
+					<Cart cart={cart}></Cart>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

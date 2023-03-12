@@ -4,14 +4,24 @@ import "./Header.css";
 
 const Header = () => {
 	return (
+		// <div className="header">
+		// 	<img className="logo" src={logo} alt="" />
+		// 	<nav>
+		// 		<a href="/shop">Shop</a>
+		// 		<a href="/order">Order</a>
+		// 		<a href="/inventory">Manag Inventory</a>
+		// 	</nav>
+		// </div>
 		<div className="header">
-			<img className="logo" src={logo} alt="" />
-			<nav>
-				<a href="/shop">Shop</a>
-				<a href="/order">Order</a>
-				<a href="/inventory">Manag Inventory</a>
-			</nav>
-		</div>
+				<div className="logo">
+					<img className="img-logo" src={logo} />
+				</div>
+				<div className="menu">
+					<a href="/shop">Shop</a>
+					<a href="/order">Order</a>
+					<a href="/inventory">Manag Inventory</a>
+				</div>
+			</div> 
 	);
 };
 

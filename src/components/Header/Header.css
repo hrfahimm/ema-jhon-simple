@@ -1,4 +1,4 @@
-.header {
+/* .header {
 	text-align: center;
 }
 .logo {
@@ -20,4 +20,27 @@
 .header nav a:hover {
 	background-color: lightgoldenrodyellow;
 	color: black;
+} */
+
+.header {
+	display: flex;
+	background-color: black;
+	align-items: center;
+	justify-content: center;
+}
+.heaader .logo .img-logo {
+	margin: 60px;
+}
+.header .menu a {
+	text-decoration: none;
+
+	margin: 10px;
+	padding: 20px;
+	border-radius: 10px;
+	color: white;
+	font-weight: 400;
+	margin-left: 30px;
+}
+.header .menu a:hover {
+	color: rgb(54, 240, 224);
 }
